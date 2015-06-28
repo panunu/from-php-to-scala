@@ -1,6 +1,6 @@
 # From PHP to Scala
 
-**For those who are not yet experienced with functional programming**
+**For those who are not yet experienced with functional programming (or static typing)**
 
 When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional mindset.
 

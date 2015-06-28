@@ -8,6 +8,10 @@ People have different backgrounds and points of view: we have programmers who ca
 
 I am no expert in functional programming. But I shall try to introduce some simple examples where functional programming with Scala (and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
 
+## Immutability
+
+Mutability is often a source of nasty bugs. Scala's mechanisms (e.g. immutable collections and `val`) makes it easier to follow the preference of immutability.
+
 ## Null checks
 
 If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.

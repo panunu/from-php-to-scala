@@ -10,7 +10,7 @@ I am no expert in functional programming. But I shall try to introduce some simp
 
 ## Null checks
 
-If a comment is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
+If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
 
 ```php
 /**

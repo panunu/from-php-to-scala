@@ -118,7 +118,7 @@ $result = null;
 
 if (($a = $service->getFromDatabase()) !== null) {
     if (($b = $anotherService->getSomething($a)) !== null) {
-        $result = $yaService->getSomethingElse($b);
+        $result = $yetAnotherService->getSomethingElse($b);
     }
 }
 ```

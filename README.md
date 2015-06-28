@@ -2,7 +2,7 @@
 
 **For those who are not yet experienced with functional programming (or static typing)**
 
-When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional mindset.
+When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional ideologies.
 
 People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, nevertheless your background, most of the code we write (at least what I write) aims to model our client’s business. We should not be trying to prove that the code is mathematically valid (or showcasing as clever usage of internal memory pointers as possible). Instead we should be writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com has some great examples)
 

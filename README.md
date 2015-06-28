@@ -111,7 +111,7 @@ TODO: Another example.
 
 ## Replacing ifs and christmas trees
 
-TODO: Better title and some nice intro here.
+TODO: Better title and some nice intro here. Intention for this "chapter" is to explore different kind of mechanisms for logical flows.
 
 ```php
 $result = null;

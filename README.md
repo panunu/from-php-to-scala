@@ -2,15 +2,17 @@
 
 **For those who are not yet experienced with Scala, static typing or functional programming**
 
-When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional ideologies.
+When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional ideologies. With Scala one can start writing code "the same way it has always been written" but slowly start to map uncharted territories.
 
 People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, regardless of your background, most of the code we write (at least what I write) aims to model our client’s business. Maybe we should not be trying to prove that our code is pure or mathematically valid (or showcasing as clever usage of pointers as possible). Instead we could try writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com has some great examples)
 
-I shall try to introduce some simple and concrete real-life examples where functional programming with Scala (and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
+I shall try to introduce some simple and concrete real-life examples where Scala (and functional programming and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
 
 ## Immutability
 
 Mutability is often a source of nasty bugs. Scala's mechanisms (e.g. immutable collections and `val`) makes it easier to follow the preference of immutability.
+
+TODO: Some nasty example.
 
 ## Null checks
 
@@ -96,6 +98,22 @@ case class Entity(val id: Int, val names: List[String])
 ```
 
 TODO: Examples about type design (e.g. using union types)?
+
+## Collections
+
+I have not heard a lot of praise for PHP's collection manipulation functions like `array_map` or `array_filter` or `array_pop` which all work a bit differently<b>*</b>. Therefore Scala's collections (although complex below the surface) feel refreshing.
+
+```php
+$xs = array_filter(array_map(function ($x) { return (int) $x; }, ['1', '2']), function ($x) { return $x === 1; }); // Immutable functions but varying parameter order
+$x = array_pop($xs); // Mutable, referencing
+```
+
+```scala
+val x = List("1", "2").map(_.toInt).filter(_ == 1).head
+```
+
+<small><b>*</b>  Luckily at least the related language mechanisms have improved. And of course there are some collection-related user land libraries for PHP like https://github.com/xi-project/xi-collections or https://github.com/Anahkiasen/underscore-php</small>
+
 
 ## Pattern matching
 

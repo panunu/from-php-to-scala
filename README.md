@@ -31,7 +31,7 @@ $wasFound = $res !== null; // Now we are safe.
 
 ``` scala
 def find: Option[Int] = … // No need for a docblock.
-val result = find()
+val result = find
 val wasFound = result.isDefined // Clear distinction between a value and it’s existence.
 ```
 

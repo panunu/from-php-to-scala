@@ -41,7 +41,7 @@ And by the way, Option is a monad.
 
 Static typing is a bit like having an always up-to-date documentation for yourself and your colleagues and even for the poor fellow that will maintain your legacy some year from now. Additionally the computer understands what you are trying to do (on a limited level but with an amazing attention to detail). So the compiler will inform if one happens to e.g. pass the wrong type of a parameter to a method *before* the flawed application is deployed, trashing production. But of course, we never do mistakes so why bother :-)
 
-Static typing seems to lessen the need for excessive testing<b>*</b> and answering to the question "did I break something when refactoring". IDEs also seem to like static typing and therefore can help you a bit better.
+Static typing seems to lessen the need for excessive testing<b>*</b> and answering to the question "did I break something when refactoring". IDEs also tend to like static typing and therefore can help you a bit better.
 
 <small><b>*</b> Based on my non-scientific hunch.<small>
 

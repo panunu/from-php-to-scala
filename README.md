@@ -1,12 +1,12 @@
 # From PHP to Scala
 
-**For those who are not yet experienced with functional programming (or static typing or Scala)**
+**For those who are not yet experienced with Scala, static typing or functional programming**
 
 When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional ideologies.
 
-People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, regardless of your background, most of the code we write (at least what I write) aims to model our client’s business. Maybe we should not be trying to prove that our code is pure or mathematically valid (or showcasing as clever usage of internal memory pointers as possible). Instead we could try writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com has some great examples)
+People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, regardless of your background, most of the code we write (at least what I write) aims to model our client’s business. Maybe we should not be trying to prove that our code is pure or mathematically valid (or showcasing as clever usage of pointers as possible). Instead we could try writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com has some great examples)
 
-I am no expert in functional programming. But I shall try to introduce some simple examples where functional programming with Scala (and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
+I shall try to introduce some simple and concrete real-life examples where functional programming with Scala (and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
 
 ## Immutability
 
@@ -37,7 +37,11 @@ And by the way, Option is a monad.
 
 ## Static types
 
-In addition to having always up-to-date documentation for humans, the computer also understands what you are trying to do and notifies if you happen to make a mistake. Of course, we never do mistakes.
+Static typing is a bit like having an up-to-date documentation for yourself and your colleagues and even for the poor fellow that will maintain your legacy some year from now. Additionally the computer understands what you are trying to do (on a limited level but with an amazing attention to detail). So the compiler will inform if one happens to e.g. pass the wrong type of a parameter to a method *before* the application is deployed and trashed production. But of course, we never do mistakes so why bother :-)
+
+Static typing seems to lessen the need for excessive testing<b>*</b> and answering to the question "did I break something when refactoring".
+
+<small>* Based on my non-scientific hunch.<small>
 
 ```php
 /**
@@ -113,7 +117,7 @@ val thingies = Try(getThingies()).getOrElse(List())
 
 TODO: Another example.
 
-## Replacing ifs and christmas trees
+## Logical flows: replacing ifs and christmas trees
 
 TODO: Better title and some nice intro here. Intention for this "chapter" is to explore different kind of mechanisms for logical flows.
 

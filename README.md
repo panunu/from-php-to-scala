@@ -112,7 +112,7 @@ $x = array_pop($xs); // Mutable, referencing
 val x = List("1", "2").map(_.toInt).filter(_ == 1).head
 ```
 
-<small><b>*</b>  Luckily at least the related language mechanisms have improved. And of course there are some collection-related user land libraries for PHP like https://github.com/xi-project/xi-collections or https://github.com/Anahkiasen/underscore-php</small>
+<small><b>*</b>  Luckily at least the related language mechanisms have improved. And of course there are some collection-related userland libraries for PHP like https://github.com/xi-project/xi-collections or https://github.com/Anahkiasen/underscore-php</small>
 
 
 ## Pattern matching

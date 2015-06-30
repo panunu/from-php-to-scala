@@ -115,7 +115,6 @@ val x = List("1", "2").map(_.toInt).filter(_ == 1).head
 
 <small><b>*</b>  Luckily at least the related language mechanisms have improved. And of course there are some collection-related userland libraries for PHP like https://github.com/xi-project/xi-collections or https://github.com/Anahkiasen/underscore-php</small>
 
-
 ## Pattern matching
 
 TODO
@@ -165,3 +164,7 @@ val result = service.getFromDatabase()
 ```
 
 FlatMap might seem a bit strange but for now you can imagine it as a unix pipe operation.
+
+## JSON
+
+TODO: Example. Hard to beat PHP ;-)

@@ -104,7 +104,8 @@ TODO: Examples about type design (e.g. using union types)?
 I have not heard a lot of praise for PHP's collection manipulation functions like `array_map` or `array_filter` or `array_pop` which all work a bit differently<b>*</b>. Therefore Scala's collections (although complex below the surface) feel refreshing.
 
 ```php
-$xs = array_filter(array_map(function ($x) { return (int) $x; }, ['1', '2']), function ($x) { return $x === 1; }); // Immutable functions but varying parameter order
+$xs = array_map(function ($x) { return (int) $x; }, ['1', '2'])
+$xs = array_filter($xs, function ($x) { return $x === 1; }); // Both immutable functions but varying parameter order
 $x = array_pop($xs); // Mutable, referencing
 ```
 

@@ -171,6 +171,24 @@ val result = service.getSomething()
 
 FlatMap might seem a bit strange but for now you can imagine it as a unix pipe operation.
 
+### Another example: controller action which throws often
+
+```php
+if (!$auth->hasIdentity()) {
+    throw new AccessDeniedHttpException();
+}
+
+$entry = $service->findObjectById($id);
+if (!$entry) {
+    throw new NotFoundHttpException();
+}
+```
+
+```scala
+if (!auth.hasIdentity) throw new AccessDeniedException
+val entry = service.findObjectById(id).getOrElse { throw new NotFoundException }
+```
+
 ## JSON
 
 TODO: Example. Hard to beat PHP ;-)

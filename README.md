@@ -171,7 +171,7 @@ val result = service.getSomething()
 
 FlatMap might seem a bit strange but for now you can imagine it as a unix pipe operation.
 
-### Another example: controller action which throws often
+**Another example: controller action which throws often**
 
 ```php
 if (!$auth->hasIdentity()) {

@@ -64,7 +64,7 @@ def getSomethingFromDatabase(id: String): Option[List[Int]] = …
 We can easily create a type-safe structure instead of arbitrary and undocumented arrays. One usually ends up with an array because writing a simple data-containing class is such a tedious task thanks to the verbosity.
 
 ```php
-public class Entity
+class Entity
 {
     private $id;
     private $names = [];

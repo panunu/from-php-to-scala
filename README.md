@@ -110,7 +110,7 @@ I have not heard a lot of praise for PHP's collection manipulation functions lik
 ```php
 $xs = array_map(function ($x) { return (int) $x; }, ['1', '2']);
 $xs = array_filter($xs, function ($x) { return $x === 1; }); // Both non-mutating functions but with varying parameter order
-$x = array_pop($xs); // Mutable, referencing
+$x = array_pop($xs); // Mutating, referencing
 ```
 
 ```scala

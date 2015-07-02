@@ -160,8 +160,7 @@ val result = for {
   c <- yetAnotherService.getSomethingElse(b)
 } yield c
 
-// Or alternative implementation.
-
+// An alternative implementation.
 val result = service.getFromDatabase()
   .flatMap(anotherService.getSomething)
   .flatMap(yetAnotherService.getSomethingElse)

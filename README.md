@@ -22,17 +22,17 @@ If commenting is the only mechanism to indicate possible null values you have an
 /**
  * @return int|null
  */
-function find() { … }
+function findPriceMultiplier() { … }
 
-$result = find();
-$wasFound = !!$result; // Bug alert! What if the $result === 0?
-$wasFound = $res !== null; // Now we are safe.
+$multiplier = findPriceMultiplier();
+$wasFound = !!$multiplier; // Bug alert! What if the $result === 0?
+$wasFound = $multiplier !== null; // Now we are safe.
 ```
 
 ``` scala
-def find: Option[Int] = … // No need for a docblock.
-val result = find
-val wasFound = result.isDefined // Clear distinction between a value and it’s existence.
+def findPriceMultiplier: Option[Int] = … // No need for a docblock.
+val multiplier = findPriceMultiplier
+val wasFound = multiplier.isDefined // Clear distinction between a value and it’s existence.
 ```
 
 And by the way, Option is a monad.
@@ -49,14 +49,14 @@ Static typing seems to lessen the need for excessive testing<b>*</b> and answeri
 /**
  * These might not be up-to-date.
  *
- * @param  string $id
+ * @param string $id
  * @return int[]|null
  */
-function getFromDatabase($id) { … }
+function getSomethingFromDatabase($id) { … }
 ```
 
 ```scala
-def getFromDatabase(id: String): Option[List[Int]] = …
+def getSomethingFromDatabase(id: String): Option[List[Int]] = …
 ```
 
 ## Model your data
@@ -64,7 +64,8 @@ def getFromDatabase(id: String): Option[List[Int]] = …
 We can easily create a type-safe structure instead of arbitrary and undocumented arrays. One usually ends up with an array because writing a simple data-containing class is such a tedious task thanks to the verbosity.
 
 ```php
-public class Entity {
+public class Entity
+{
     private $id;
     private $names = [];
     
@@ -72,7 +73,8 @@ public class Entity {
      * @param int $id
      * @param string[] $names
      */
-    public function __construct($id, array $names = []) {
+    public function __construct($id, array $names = [])
+    {
         $this->id = $id;
         $this->names = $names;
     }
@@ -80,14 +82,16 @@ public class Entity {
     /**
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @return string[]
      */
-    public function getNames() {
+    public function getNames()
+    {
         return $this->names;
     }
 }
@@ -104,8 +108,8 @@ TODO: Examples about type design (e.g. using union types)?
 I have not heard a lot of praise for PHP's collection manipulation functions like `array_map` or `array_filter` or `array_pop` which all work a bit differently<b>*</b>. Therefore Scala's collections (although complex below the surface) feel refreshing.
 
 ```php
-$xs = array_map(function ($x) { return (int) $x; }, ['1', '2'])
-$xs = array_filter($xs, function ($x) { return $x === 1; }); // Both immutable functions but varying parameter order
+$xs = array_map(function ($x) { return (int) $x; }, ['1', '2']);
+$xs = array_filter($xs, function ($x) { return $x === 1; }); // Both non-mutating functions but with varying parameter order
 $x = array_pop($xs); // Mutable, referencing
 ```
 

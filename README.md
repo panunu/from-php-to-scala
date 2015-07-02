@@ -98,7 +98,7 @@ class Entity
 ```
 
 ```scala
-case class Entity(val id: Int, val names: List[String])
+case class Entity(id: Int, names: List[String])
 ```
 
 TODO: Examples about type design (e.g. using union types)?

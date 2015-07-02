@@ -146,24 +146,27 @@ TODO: Better title and some nice intro here. Intention for this "chapter" is to 
 ```php
 $result = null;
 
-if (($a = $service->getFromDatabase()) !== null) {
-    if (($b = $anotherService->getSomething($a)) !== null) {
-        $result = $yetAnotherService->getSomethingElse($b);
+if (($a = $service->getSomething()) !== null) {
+    if (($b = $anotherService->getSomethingElse($a)) !== null) {
+        if (($c = $yetAnotherService->getSomethingElse($b)) !== null) {
+            $result = $service->getFinalResult($c);
+        }
     }
 }
 ```
 
 ```scala
 val result = for {
-  a <- service.getFromDatabase() // These methods return e.g. Options
-  b <- anotherService.getSomething(a)
+  a <- service.getSomething() // These methods return e.g. Options
+  b <- anotherService.getSomethingElse(a)
   c <- yetAnotherService.getSomethingElse(b)
-} yield c
+} yield service.getFinalResult(c)
 
 // An alternative implementation.
-val result = service.getFromDatabase()
-  .flatMap(anotherService.getSomething)
+val result = service.getSomething()
+  .flatMap(anotherService.getSomethingElse)
   .flatMap(yetAnotherService.getSomethingElse)
+  .flatMap(service.getFinalResult)
 ```
 
 FlatMap might seem a bit strange but for now you can imagine it as a unix pipe operation.

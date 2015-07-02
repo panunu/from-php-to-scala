@@ -64,10 +64,10 @@ def getFromDatabase(id: String): Option[List[Int]] = …
 We can easily create a type-safe structure instead of arbitrary and undocumented arrays. One usually ends up with an array because writing a simple data-containing class is such a tedious task thanks to the verbosity.
 
 ```php
-public class Entity {
+class Entity {
     private $id;
     private $names = [];
-    
+
     /**
      * @param int $id
      * @param string[] $names
@@ -94,7 +94,7 @@ public class Entity {
 ```
 
 ```scala
-case class Entity(val id: Int, val names: List[String])
+case class Entity(id: Int, names: List[String])
 ```
 
 TODO: Examples about type design (e.g. using union types)?

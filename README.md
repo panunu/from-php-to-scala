@@ -159,9 +159,9 @@ val result = for {
   b <- anotherService.getSomething(a)
   c <- yetAnotherService.getSomethingElse(b)
 } yield c
-```
 
-```scala
+// Or alternative implementation.
+
 val result = service.getFromDatabase()
   .flatMap(anotherService.getSomething)
   .flatMap(yetAnotherService.getSomethingElse)

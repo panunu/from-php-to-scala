@@ -14,29 +14,6 @@ Mutability is often a source of nasty bugs. Scala's mechanisms (e.g. immutable c
 
 TODO: Some nasty example.
 
-## Null checks
-
-If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
-
-```php
-/**
- * @return int|null
- */
-function findPriceMultiplier() { … }
-
-$multiplier = findPriceMultiplier();
-$wasFound = !!$multiplier; // Bug alert! What if the $result === 0?
-$wasFound = $multiplier !== null; // Now we are safe.
-```
-
-``` scala
-def findPriceMultiplier: Option[Int] = … // No need for a docblock.
-val multiplier = findPriceMultiplier
-val wasFound = multiplier.isDefined // Clear distinction between a value and it’s existence.
-```
-
-And by the way, Option is a monad.
-
 ## Static types
 
 Static typing is a bit like having an always up-to-date documentation for yourself and your colleagues and even for the poor fellow that will maintain your legacy some year from now. Additionally the computer understands what you are trying to do (on a limited level but with an amazing attention to detail). So the compiler will inform if one happens to e.g. pass the wrong type of a parameter to a method *before* the flawed application is deployed, trashing production. But of course, we never do mistakes so why bother :-)
@@ -58,6 +35,31 @@ function getSomethingFromDatabase($id) { … }
 ```scala
 def getSomethingFromDatabase(id: String): Option[List[Int]] = …
 ```
+
+## Null checks (and API design)
+
+If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
+
+Apparently it is not fully obvious when to return `null`, `false` or throw an exception (http://stackoverflow.com/questions/175532/should-a-retrieval-method-return-null-or-throw-an-exception-when-it-cant-prod). Therefore I think that having a language mechanism with a clear benefit can make the decision a tad easier.
+
+```php
+/**
+ * @return int|null
+ */
+function findPriceMultiplier() { … }
+
+$multiplier = findPriceMultiplier();
+$wasFound = !!$multiplier; // Bug alert! What if the $result === 0?
+$wasFound = $multiplier !== null; // Now we are safe.
+```
+
+``` scala
+def findPriceMultiplier: Option[Int] = … // No need for a docblock.
+val multiplier = findPriceMultiplier
+val wasFound = multiplier.isDefined // Clear distinction between a value and it’s existence.
+```
+
+And by the way, Option is a monad :-)
 
 ## Model your data
 

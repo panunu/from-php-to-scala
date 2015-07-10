@@ -27,13 +27,13 @@ Static typing seems to lessen the need for excessive testing<b>*</b> and answeri
  * These might not be up-to-date.
  *
  * @param string $id
- * @return int[]|null
+ * @return int[]
  */
 function getSomethingFromDatabase($id) { … }
 ```
 
 ```scala
-def getSomethingFromDatabase(id: String): Option[List[Int]] = …
+def getSomethingFromDatabase(id: String): List[Int] = …
 ```
 
 ## Null checks (and API design)

@@ -36,7 +36,7 @@ function getSomethingFromDatabase($id) { … }
 def getSomethingFromDatabase(id: String): List[Int] = …
 ```
 
-## Null checks (and API design)
+## Null checks
 
 If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
 

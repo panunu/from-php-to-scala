@@ -188,6 +188,7 @@ if (!$entry) {
 
 ```scala
 if (!auth.hasIdentity) throw new AccessDeniedException
+
 val entry = service.findObjectById(id).getOrElse { throw new NotFoundException }
 ```
 

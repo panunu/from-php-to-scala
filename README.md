@@ -103,6 +103,8 @@ class Entity
 case class Entity(id: Int, names: List[String])
 ```
 
+One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in both reading and writing.
+
 TODO: Examples about type design (e.g. using union types)?
 
 ## Collections

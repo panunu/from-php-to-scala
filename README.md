@@ -103,7 +103,9 @@ class Person
 case class Person(id: Int, names: List[String]) // `val`s by default and therefore immutable
 ```
 
-One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in the process of reading and writing code. It is also quite trivial to model data with relationships. And with a single glance you can see the stuff that belongs together (instead of scanning multiple files separately).
+One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in the process of reading and writing code.
+
+It is also quite trivial to model data with relationships. And with a single glance you can see the stuff that belongs together (instead of scanning multiple files separately).
 
 ```scala
 case class Book(title: String, author: Author, publisher: Option[Publisher])

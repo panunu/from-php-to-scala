@@ -4,7 +4,7 @@
 
 When wandering from a non-functional way of programming into the world of functional programming one has to admit that the first steps may seem a bit steep and hard to comprehend. Usually one might bump into mystics with theoretical examples which seem to scare people away. And I think the people who get scared would be the ones to benefit the most from the functional ideologies. With Scala one can start writing code "the same way it has always been written" but slowly start to map uncharted territories.
 
-People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, regardless of your background, most of the code we write (at least which I write) aims to model our client’s business. Maybe we should not be trying to prove that our code is pure or mathematically valid (or showcasing as clever usage of pointers as possible). Instead we could try writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com has some great examples)
+People have different backgrounds and points of view: we have programmers who call themselves “self-educated hacker rebels”, “disciplined software engineers”, “academic software scientists”, “code artisans” or “poets”. But still, regardless of your background, most of the code we write (at least which I write) aims to model our client’s business. Maybe we should not be trying to prove that our code is pure or mathematically valid or showcasing as clever usage of pointers as possible. Instead we could try writing code which reflects the real world. So we are the examples on how to do that? (Of course some exist e.g. http://fsharpforfunandprofit.com)
 
 I shall try to introduce some simple and concrete real-life examples where Scala (and functional programming and static typing) might give you an edge. And maybe later we explore the patterns behind the code (the scary monads and so on). So let’s carry on to the examples.
 
@@ -16,7 +16,7 @@ TODO: Some nasty example.
 
 ## Static types
 
-Static typing is a bit like having an always up-to-date documentation for yourself and your colleagues and even for the poor fellow that will stumble upon and maintain your legacy in the future. Additionally the computer understands what you are trying to do (on a limited level but with an amazing attention to detail). So the compiler will inform if one happens to e.g. pass the wrong type of a parameter to a method *before* the flawed application is deployed, trashing production. But of course, we never do mistakes so why bother :-)
+Static typing is a bit like having an always up-to-date documentation for yourself, your colleagues and even for the poor fellow that will stumble upon and maintain your legacy in the future. Additionally the computer understands what you are trying to do (on a limited level but with an amazing attention to detail). So the compiler will inform if one happens to e.g. pass the wrong type of a parameter to a method *before* the flawed application is deployed, trashing production. But of course, we never do mistakes so why bother :-)
 
 Static typing seems to lessen the need for excessive testing<b>*</b> and answering the question "did I break something when refactoring". IDEs also tend to like static typing and therefore can help you a bit better.
 
@@ -40,7 +40,7 @@ def getSomethingFromDatabase(id: String): List[Int] = …
 
 If commenting is the only mechanism to indicate possible null values you have an extra mental load to carry with you: remember to check for nulls. And docblocks tend to (accidentally) lie.
 
-Apparently it is not fully obvious when to return `null`, `false` or throw an exception (http://stackoverflow.com/questions/175532/should-a-retrieval-method-return-null-or-throw-an-exception-when-it-cant-prod). Therefore I think that having a language mechanism with a clear benefit can make the decision a tad easier.
+Apparently it is also not fully obvious when to return `null`, `false` or throw an exception (http://stackoverflow.com/questions/175532/should-a-retrieval-method-return-null-or-throw-an-exception-when-it-cant-prod). Therefore I think that having a language mechanism with a clear benefit can make the decision a tad easier.
 
 ```php
 /**
@@ -66,7 +66,7 @@ And by the way, Option is a monad :-)
 We can easily create a type-safe structure instead of arbitrary and undocumented arrays. One usually ends up with an array because writing a simple data-containing class is such a tedious task thanks to the verbosity.
 
 ```php
-class Entity
+class Person
 {
     private $id;
     private $names = [];
@@ -100,10 +100,16 @@ class Entity
 ```
 
 ```scala
-case class Entity(id: Int, names: List[String])
+case class Person(id: Int, names: List[String]) // `val`s by default and therefore immutable
 ```
 
-One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in both reading and writing.
+One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in the process of reading and writing code. It is also quite trivial to model data with relationships. And with a single glance you can see the stuff that belongs together (instead of scanning multiple files separately).
+
+```scala
+case class Book(title: String, author: Author, publisher: Option[Publisher])
+case class Author(name: String)
+case class Publisher(name: String)
+```
 
 TODO: Examples about type design (e.g. using union types)?
 
@@ -196,4 +202,16 @@ val entry = service.findObjectById(id).getOrElse { throw new NotFoundException }
 
 ## JSON
 
-TODO: Example. Hard to beat PHP ;-)
+It is hard to beat PHP's JSON mechanisms in terms of conciseness. As we are dealing with static typing, handling JSON makes more sense if you utilise case classes. After that it is actually quite straightforward.
+
+```scala
+import play.api.libs.json._ // Library alternatives exist
+
+case class Event(id: Int, message: String)
+implicit val eventFormat = Json.format[Event] // To enable serialization and deserialization
+
+val json = Json.toJson(Event(1, "ack")) // Serialized
+val event = Json.parse(json.toString).as[Event] // Deserialized
+
+val onlyMessage = json \ "message"
+```

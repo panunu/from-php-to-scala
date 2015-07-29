@@ -100,7 +100,7 @@ class Person
 ```
 
 ```scala
-case class Person(id: Int, names: List[String]) // `val`s by default and therefore immutable
+case class Person(id: Int, names: List[String]) // vals by default and therefore immutable
 ```
 
 One can almost miss the given example as the syntax is so terse. But just imagine how much trouble you save in the process of reading and writing code.

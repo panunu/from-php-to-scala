@@ -1,6 +1,6 @@
 # From PHP to Scala
 
-<img src="https://raw.githubusercontent.com/panunu/from-php-to-scala/master/cover.png" alt="From PHP to Scala"/>
+<img src="https://raw.githubusercontent.com/panunu/from-php-to-scala/master/cover.png?1" alt="From PHP to Scala"/>
 
 **For those who are not yet experienced with Scala, static typing or functional programming**
 
